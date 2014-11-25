@@ -1,0 +1,268 @@
+/* CSS full-screen layout - site specific elements */
+
+html { overflow: hidden; }
+body { overflow: hidden; padding: 0; margin: 0; width: 100%; height: 100%; font-family: Trebuchet MS, Trebuchet, Arial, sans-serif; background: #FFFFFF;}
+h1 { padding:7px 10px; margin:0; font-size: 1.2em; line-height:0.2em; }
+h2 { padding:7px 10px; margin:0; font-size: 1.0em; }
+h3 {	font-size: 0.9em; border-bottom: 1px solid #ccc;}
+h4 {	font-size: 0.85em;}
+label { font-size: 0.9em;}
+
+#header { position: absolute; border: 1px solid #fff; top: 10px; left: 10px; right: 10px; margin-bottom:5px; height: 80px; overflow: hidden;  }
+#header { background: #ffffff; border: 1px solid #592F57; box-shadow: 0 0px 0px #CCC; } 
+#headertitle { position: absolute; top: 10px; left: 100px; right:20px; overflow: hidden; text-align:center; } 
+#map { position: absolute; top: 100px; left: 285px; right: 10px; bottom: 50px; overflow: hidden; border: 1px solid #ccc; box-shadow: 0 0px 0px #CCC; background-color: #cedfe4;} 
+#sidebar { position: absolute; top: 100px; left: 10px; width: 250px; bottom: 50px; font-size: 14px; overflow: auto; border: 1px solid #592F57; box-shadow: 0 0px 0px #CCC; padding: 10px 10px 10px 10px;}
+#overlaySelect  { position: relative; top: 10px; left: 0px; z-index: 10000;}
+#layerSelect { position: absolute; top: 10px; right: 10px; z-index: 10000;}
+#scalebar {position: absolute; right: 20px; bottom: 75px; z-index: 10001; font-size: small;}
+
+#slider-id { position: relative; top: 10px; left: 10px; width: 120px;  height:10px; margin: 10px; z-index: 10000;}
+
+#slider-id .ui-slider-handle { 
+	position: relative; 
+	top: -11px; 
+	z-index: 2; 
+	width: 36px; 
+	height: 26px; 
+	cursor: default; 
+	border-color: transparent; 
+	background: rgba(255, 255, 255, 0.5); 
+	padding: 2px; 
+	border-radius: 5px; 
+	font-weight: bold; 
+	color: white; 
+	text-align: center; 
+	text-shadow: 0 0 3px rgba(0,0,0,0.8);
+}
+#slider-id .ui-slider-range { 
+	position: relative; 
+	z-index: 1;  
+	font-size: 1.2em; 
+	display: block; 
+	border: 1; 
+	background-position: 0 0; 
+        background: #130085; /* fallback for IE - IE6 requires background shorthand*/
+        background: rgba(0, 60, 136, 0.5);
+         // background: #999; /* fallback for IE - IE6 requires background shorthand*/
+         // background: rgba(102, 102, 102, 0.7);
+	border-radius: 4px;
+}
+#slider-id .ui-slider-range:after { 
+	content: "< >"; 
+}
+
+#slider-id .ui-slider-handle:hover {
+     background: rgba(102, 102, 102, 0.8);
+     border-color: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#slider-id .ui-slider-handle:active {
+     background: rgba(10, 10, 10, 0.2);
+     border-color: white;
+     //cursor: crosshair;
+
+}
+
+
+
+/* OpenLayers scalebar style */
+
+.olControlScaleLine {
+   display: block;
+   position: absolute;
+   left: 10px;
+   bottom: 15px;
+   font-size: xx-small;
+}
+.olControlScaleLineBottom {
+   border: solid 2px black;
+   border-bottom: none;
+   margin-top:-2px;
+   text-align: center;
+}
+.olControlScaleLineTop {
+   border: solid 2px black;
+   border-top: none;
+   text-align: center;
+}
+
+/* OpenLayers style elements  */
+
+.olLayerGoogleCopyright {
+    left: 2px;
+    bottom: 2px;
+}
+.olLayerGoogleV3.olLayerGoogleCopyright {
+    right: auto !important;
+}
+.olLayerGooglePoweredBy {
+    left: 2px;
+    bottom: 15px;
+}
+.olLayerGoogleV3.olLayerGooglePoweredBy {
+    bottom: 15px !important;
+}
+
+
+
+.olImageLoadError { display: none !important; }
+
+
+
+#map       .olControlAttribution {
+            position: absolute;
+            font-size: 10px;
+            bottom: 0 !important;
+            right: 150px !important;
+   	    text-align: right;
+            background: rgba(0, 0, 0, 0.1);
+            font-family: Arial;
+            padding: 2px 4px;
+            border-radius: 5px 0 0 0;
+        }
+
+.olControlMousePosition {
+    position: absolute;
+    right: 5px;
+    bottom: 15px;
+    height: 48px;
+    font-size: 9pt;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+.olHandlerBoxZoomBox {
+    border: 2px solid red;
+    position: absolute;
+    background-color: white;
+    opacity: 0.50;
+    font-size: 1px;
+    filter: alpha(opacity=50);
+}
+
+#customZoom {
+    z-index: 1001;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+#customZoom a {
+    text-decoration: none;
+    position: absolute;
+    display: block;
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    background: #369;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+#customZoom a:hover {
+    background: #036;
+}
+#customZoomOut {
+    top: 25px;
+}
+
+/* OpenLayers style.mobile.css */
+
+div.olControlZoom {
+    position: absolute;
+    top: 8px ;
+    left: 8px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 4px;
+    padding: 2px;
+    margin: 1px;
+}
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+div.olControlZoom a {
+    display: block;
+    margin: 1px;
+    padding: 0;
+    color: white;
+    font-size: 28px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    height: 32px;
+    width: 32px;
+    line-height: 28px;
+    text-shadow: 0 0 3px rgba(0,0,0,0.8);
+    background: #130085; /* fallback for IE - IE6 requires background shorthand*/
+    background: rgba(0, 60, 136, 0.5);
+    filter: alpha(opacity=80);
+}
+a.olControlZoomIn {
+    border-radius: 4px 4px 0 0;
+}
+a.olControlZoomOut {
+    border-radius: 0 0 4px 4px;
+}
+div.olControlZoom a:hover {
+    background: #130085; /* fallback for IE */
+    background: rgba(0, 60, 136, 0.7);
+    filter: alpha(opacity=100);
+}
+@media only screen and (max-width: 600px) {
+    div.olControlZoom a:hover {
+        background: rgba(0, 60, 136, 0.5);
+    }
+}
+.olLayerGrid .olTileImage {
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+/*
+@media (-webkit-transform-3d) { img.olTileImage {    -webkit-transform: translate3d(0, 0, 0);}}
+
+
+/* CSS autocomplete */
+.ac-renderer {
+  position: absolute;
+  width: 350px;
+  background-color: #fff;
+  border: 1px solid #666;
+  -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+  -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
+  z-index: 10000;
+}
+
+.ac-row {
+  position: relative;
+  padding: .4em;
+  cursor: pointer;
+}
+
+.ac-highlighted {
+  font-weight: bold;
+}
+
+.ac-active {
+  background-color: #b2b4bf;
+}
+
+.ac-type {
+  background-color: #990033;
+  color: #FFFFFF;
+  display: block;
+  margin: 2px;
+  padding: 2px;
+  font-style: italic;
+  float: right;
+}
