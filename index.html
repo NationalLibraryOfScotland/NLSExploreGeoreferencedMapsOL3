@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Explore Georeferenced Maps - OpenLayers viewer for georeferenced historic map mosaics generated with MapTiler</title>
+		<link type="text/css" rel="stylesheet" href="explorecss.css" media="screen" />
+    		<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css" />
+		<script type="text/javascript" src="OpenLayers.js"></script>
+		<script type="text/javascript" src="explore.js"></script> 
+		<script type="text/javascript" src="gaz.js"></script>
+    		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+	</head>
+  	<body onload="init()" onresize="forceRedraw()">
+
+	    <div id="header">
+		<div id="headertitle">	<h1>Explore Georeferenced Maps</h1><br />
+		<h2>View a selection of historic maps as overlays on a modern map or satellite image</h2>
+	    	</div>
+	    </div>
+
+	    <div id="sidebar">
+		<h3>Search for a place:</h3>
+			<form id="nlsgazform" class="notranslate">
+				<p><label for="nlsgaz">Gazetteer / Brit Nat Grid Ref:</label> 
+				<input type="search" autocomplete="off" id="nlsgaz" onfocus="if(this.value == 'Type a placename...') { this.value = ''; }" onblur="this.value=!this.value?'Type a placename...':this.value;" value="Type a placename..." name="nlsgaz" /> or</p>
+				<p><label for="county">County:</label> <select id="county" name="county"></select></p>
+				<p id="parish_span"><label for="parish">Parish:</label> <select id="parish" name="parish"></select></p>
+			</form>
+
+			<br />
+
+			<h3>Change transparency of overlay:</h3>
+		         <div id="slider-id"><div class="ui-slider-handle"><div class="ui-slider-range"></div></div></div>  
+		     	 <div id="overlaySelect">
+		         <!-- <input type="radio" name="overlay" value="1">Overlay<br></input> -->
+		      	 </div> 
+
+	     </div>
+
+             <div id="map">
+		        <form><select id="layerSelect" onchange="map.setBaseLayer(map.layers[this.selectedIndex])"></select></form>
+			<div id="scalebar"></div>
+	     </div>
+
+</body>
+</html>
