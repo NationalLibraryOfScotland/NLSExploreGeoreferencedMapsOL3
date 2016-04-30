@@ -1,147 +1,63 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--[if gt IE 1]><html xmlns="http://www.w3.org/1999/xhtml" class="ie"><![endif]-->
-<!--[if !IE]><!--><html xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-		<title>Explore georeferenced maps - Map images - National Library of Scotland</title>
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/maps-chrome.css?v=20150413" media="screen" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/maps-chrome-mapviewer.css?v=20150526" media="screen" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/maps-content-forms.css" media="screen" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/maps-content-general.css" media="screen" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/maps-content-mapviewer.css?v=20150310" media="screen" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/openlayers3.0.css?v=20150526" media="screen" /> 
-    <link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/viewer-bootstrap-slider.css" type="text/css">
-		<link rel="stylesheet" href="http://maps.nls.uk/assets/css/viewer-print.css?v=20150407" type="text/css" media="print" />
-		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/mobile.css?v=20150430" media="screen and (min-width : 320px) and (max-width : 640px) " />
+		<title>Explore Georeferenced Maps - OpenLayers viewer for georeferenced historic map mosaics generated with MapTiler</title>
 
+    		<link type="text/css" rel="stylesheet" href="http://maps.nls.uk/assets/css/viewer-bootstrap-slider.css" type="text/css">
+		<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.css"></script>
+		<link type="text/css" rel="stylesheet" href="explorecss.css" media="screen" />
+	<style>
+		.ol-mouse-position{position: absolute; right:8px;height:80px; font-size: 9pt;text-align: right;background: rgba(255, 255, 255, 0.5);line-height: 13pt; border-radius: 2px;}
+	</style> 
 	</head>
+  	<body>
 
-	<body id="mapViewerGeoRefMaps" >
-	
-		<div id="header">
-			<a href="http://www.nls.uk/"><img id="NLSLogo" src="http://maps.nls.uk/assets/graphics/nls_logo_notext.png" width="131" height="58" alt="National Library of Scotland" /></a>
-			<h1 id="siteTitle"><a href="http://maps.nls.uk/">Map images</a></h1>
-			<h2 id="pageTitle"><a href="javascript:setURL();">Find by place</a> &nbsp;|&nbsp; Explore georeferenced maps &nbsp;|&nbsp; <a href="javascript:sidebysideURL();">Side by Side</a><br /><br />View maps overlaid on a modern map / satellite image</h2>
+	    <div id="header">
+		<div id="headertitle">	<h1>Explore Georeferenced Maps</h1><br />
+		<h2>View a selection of historic maps as overlays on a modern map or satellite image</h2>
+	    	</div>
+	    </div>
 
- 			<script type="text/javascript" src="/assets/scripts/searchText.js"></script>
+	    <div id="sidebar">
+		<h3>Search for a place:</h3>
 
-			<form action="http://www.google.com/cse" method="get" class="headerSearchForm">
-				<input type="hidden" name="cx" value="004988112283334510717:dtvnxsp4ug8" />
-				<input type="hidden" name="ie" value="UTF-8" />
-				<input type="submit" value="" id="headerSearchFormSubmitButton" />
-				<input type="text" name="q" id="headerSearchFormSearchBox" value="Keyword search" />
-			</form> 
-
-			<div id="bar">
-				<p id="URHere"></p>
-				<ul id="headerMenu">
-					<li class="btn browseByCategory"><a href="/browse.html">Browse by category</a></li>
-					<!--<li class="btn findByPlace"><a href="/geo/find/">Find by place</a></li> -->
-				</ul>
-				<!-- <ul id="digitalOrdersMenu">
-					<li class="btn viewBasket"><a href="https://auth.nls.uk/digital-orders/?site=maps">View basket</a></li>
-				</ul>  -->
-			</div>
-		</div>
-
-		
-		<button id="show">Show Search Panel</button>
-		
-		<div id="searchSideBar">
-
-			<button id="hide">Hide Search Panel</button>
-			<br />
-			<h4>Find a place:</h4>
-			<form id="nlsgazform">
-
-
-				<p><label for="nlsgaz">Gazetteer / NG Ref:</label> <input type="radio" name="nlsgazarea" value="uk" checked>UK 
-      <input type="radio" name="nlsgazarea" value="">World
-
-<input type="search" autocomplete="off" id="nlsgaz" onfocus="if(this.value == 'Type a placename...') { this.value = ''; }" onblur="this.value=!this.value?'Type a placename...':this.value;" value="Type a placename..." name="nlsgaz" /> or</p>
+			<form id="nlsgazform" class="notranslate">
+				<p><label for="nlsgaz">Gazetteer / Nat Grid Ref:</label> 
+				<input type="radio" name="nlsgazarea" value="uk" checked>UK 
+     				 <input type="radio" name="nlsgazarea" value="">World
+				<input type="search" autocomplete="off" id="nlsgaz" onfocus="if(this.value == 'Type a placename...') { this.value = ''; }" onblur="this.value=!this.value?'Type a placename...':this.value;" value="Type a placename..." name="nlsgaz" /> or</p>
 				<p><label for="county">County:</label> <select id="county" name="county"></select></p>
 				<p id="parish_span"><label for="parish">Parish:</label> <select id="parish" name="parish"></select></p>
 			</form>
+
 			<br />
-			<h4>Choose an historic map overlay:</h4>
-			<form id="nlshoform">
-			 	<p><label for="overlaySelectNode">1. Select a category:</label><select id="overlaySelectNode" onchange="javascript:loadOverlayNode();switchOverlay();"></select></p>
-				<p><label for="overlaySelectLayer">2. Select a map / map series:</label><select id="overlaySelectLayer" onchange="javascript:switchOverlay();"></select></p>
-				<p id="zoomtoextent"><a href="javascript:zoomtoextent();">Zoom to this map / map series:</a></p>
-			</form>
-			<p id="layers" >These overlay lists automatically update to those covering the map</p><br /> 
-			<div id="layertext"></div><br />
-			<h4>Change transparency of overlay:</h4>
+
+			<h3>Overlays:</h3>
+		     	<div id="overlaySelect"></div> 
+
 			<br />
+
+			<h3>Change transparency of map overlay:</h3>
       			<p class="infomapslider">
         		<input id="mapslider" data-slider-id='mapsslider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="100"/>
-      			</p>
+      			</p> 
 
 
-         		<!-- <div id="slider-id" onselectstart="return false;"><div class="ui-slider-handle"><div class="ui-slider-range"></div></div></div>  -->
-			<div id="layertext"></div>
+	     </div>
 
-		</div>
-		
-		<div id="map" class="map">
-
-		<form><select id="layerSelect" onchange="changemap(this.selectedIndex)"></select></form>
-
-		<form id="measurementControlForm">
-			<!-- <select onchange="toggleControl(this);" id="type"> -->
-			<select onchange="toggleControl(this);" id="type">
-			<option value="none">Measurement tools</option>
-			<option value="length">Measure distance</option>
-			<option value="area">Measure area</option>
-			</select></form>
-                                 
-                <ol id="measureOutput" reversed></ol>
-		<div id="stopmeasuringmessage"></div>
- 
+	     <div id="map" class="map">
+			<form><select id="layerSelect" onchange="changemap(this.selectedIndex)"></select></form>
 			<div id="scalebar"></div>
-		</div>
-		
-		<div id="footer">
-		
-			<ul id="footerMenuViewer">
-				<li><a href="javascript:printURL();">Full-screen</a></li>
-				<li><a href="javascript:getmapkey();">Map Key</a></li>
-				<li><a href="help.html">Help</a></li>
-			</ul>
-			<p id="tip">TIP: Hold [Shift] key, and select<br />(drag cursor) to zoom to a specific area.</p>
-			<p id="tip">Hold [Alt] and [Shift] keys, and select<br />(drag cursor) to rotate.</p>
-			<ul id="footerMenuSite">
-				<li><a href="/about.html">About</a></li>
-				<li><a href="/contact.html">Contact</a></li>
-				<li><a href="/site-map.html">Site map</a></li>
-				<li><a href="/cookies.html">Use of cookies</a></li>
-			</ul>
-		
-		</div>
-
+	     </div>
 
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.14/proj4.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.5.0/ol.js"></script>
     		<script type="text/javascript" src="bootstrap-slider.js" type="text/javascript"></script>
-		<script type="text/javascript" src="proj4.js"></script>
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
-		<script type="text/javascript" src="ol.js"></script>
 		<script type="text/javascript" src="gaz.js"></script>
 		<script type="text/javascript" src="explore.js"></script> 
 
-	<script>
-	
-	    jQuery("#hide").click(function(){
-	        jQuery("#searchSideBar").hide();
-	    });
-	    jQuery("#show").click(function(){
-	        jQuery("#searchSideBar").show();
-	    });
-	
-	</script>
-
-	<cfinclude template="/assets/includes/gahelper.stm" />
 
 </body>
 </html>
