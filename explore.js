@@ -207,7 +207,7 @@
 // NLS historic map overlay layers
 
     var oneinch2nd = new ol.layer.Tile({
-	title: "OS One Inch, 1885-1900 - Outline",
+	title: "Great Britain - OS One Inch, 1885-1900",
 	source: new ol.source.XYZ({
 				url: "http://geo.nls.uk/maps/os/1inch_2nd_ed/{z}/{x}/{-y}.png",
 				attributions: [NLS_attribution],
@@ -218,20 +218,8 @@
         visible: false
     });
 
-    var oneinchseventh = new ol.layer.Tile({
-	title: "OS One Inch 7th series, 1955-61",
-	source: new ol.source.XYZ({
-				url: "http://geo.nls.uk/mapdata2/os/seventh/{z}/{x}/{-y}.png",
-				attributions: [NLS_attribution],
-				minZoom: 8,
-				maxZoom: 16
-		  }),
-        type: 'overlay', 
-        visible: false
-    });
-
     var bartgreatbritain = new ol.layer.Tile({
-	title: "Bartholomew Half Inch, 1897-1907",
+	title: "Great Britain  - Bartholomew Half Inch, 1897-1907",
 	source: new ol.source.XYZ({
 				url: "http://geo.nls.uk/mapdata2/bartholomew/great_britain/{z}/{x}/{-y}.png",
 				attributions: [NLS_attribution],
@@ -242,8 +230,20 @@
         visible: false
     });
 
+     var quarterinchscotland = new ol.layer.Tile({
+	title: "Scotland - OS Quarter Inch, 1921-1923",
+	source: new ol.source.XYZ({
+				url: "http://geo.nls.uk/maps/os/quarter/{z}/{x}/{-y}.png",
+				attributions: [NLS_attribution],
+				minZoom: 8,
+				maxZoom: 12
+		  }),
+        type: 'overlay', 
+	visible: false
+    });
 
-	overlayLayers = [oneinch2nd, oneinchseventh, bartgreatbritain];
+
+	overlayLayers = [oneinch2nd, bartgreatbritain, quarterinchscotland];
 
 // Change the layer in this line below to the initial overlay layer that is set to true
 
