@@ -174,6 +174,7 @@
 	              title: 'Background map - OS Opendata',
 	              type: 'base',
 		      source: new ol.source.XYZ({
+		      		    attributions: [new ol.Attribution({html: 'Contains OS data &copy; Crown copyright and database right 2011'})],
 				    url: 'http://geo.nls.uk/maps/opendata/{z}/{x}/{y}.png',
 				    // minZoom: 10,
 				    maxZoom: 16,
@@ -319,6 +320,7 @@
 		map.getLayers().insertAt(1,overlayLayers[index]);
 		overlaySelected = overlayLayers[index];
 	    	overlaySelected.setVisible(true);
+	    	map.getLayers().getArray()[1].setOpacity(opacity);
 	}
 
 // Sets up an opacity slider on the overlay layer
