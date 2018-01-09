@@ -210,10 +210,10 @@
     var oneinch2nd = new ol.layer.Tile({
 	title: "Great Britain - OS One Inch, 1885-1900",
 	source: new ol.source.XYZ({
-				url: "http://geo.nls.uk/maps/os/1inch_2nd_ed/{z}/{x}/{-y}.png",
+				url: "http://geo.nls.uk/maps/os/1inch_2nd_ed/{z}/{x}/{y}.png",
 				attributions: [NLS_attribution],
-				minZoom: 8,
-				maxZoom: 15
+				minZoom: 1,
+				maxZoom: 16
 		  }),
         type: 'overlay', 
         visible: false
@@ -234,9 +234,9 @@
      var quarterinchscotland = new ol.layer.Tile({
 	title: "Scotland - OS Quarter Inch, 1921-1923",
 	source: new ol.source.XYZ({
-				url: "http://geo.nls.uk/maps/os/quarter/{z}/{x}/{-y}.png",
+				url: "http://geo.nls.uk/maps/os/quarter/{z}/{x}/{y}.png",
 				attributions: [NLS_attribution],
-				minZoom: 8,
+				minZoom: 1,
 				maxZoom: 12
 		  }),
         type: 'overlay', 
