@@ -1,0 +1,32 @@
+/* CSS full-screen layout - site specific elements */
+
+html { overflow: hidden; }
+body { overflow: hidden; padding: 0; margin: 0; width: 100%; height: 100%; font-family: Trebuchet MS, Trebuchet, Arial, sans-serif; background: #FFFFFF;}
+h1 { padding:7px 10px; margin:0; font-size: 1.2em; line-height:0.2em; }
+h2 { padding:7px 10px; margin:0; font-size: 1.0em; }
+h3 {	font-size: 0.9em; border-bottom: 1px solid #ccc;}
+h4 {	font-size: 0.85em;}
+label { font-size: 0.9em;}
+
+#header { position: absolute; border: 1px solid #fff; top: 10px; left: 10px; right: 10px; margin-bottom:5px; height: 80px; overflow: hidden;  }
+#header { background: #ffffff; border: 1px solid #592F57; box-shadow: 0 0px 0px #CCC; } 
+#headertitle { position: absolute; top: 10px; left: 100px; right:20px; overflow: hidden; text-align:center; } 
+#map { position: absolute; top: 100px; left: 315px; right: 10px; bottom: 20px; overflow: hidden; border: 1px solid #ccc; box-shadow: 0 0px 0px #CCC; background-color: #cedfe4;} 
+#sidebar { position: absolute; top: 100px; left: 10px; width: 280px; bottom: 20px; font-size: 14px; overflow: auto; border: 1px solid #592F57; box-shadow: 0 0px 0px #CCC; padding: 10px 10px 10px 10px;overflow-x:hidden;overflow-y:hidden;}
+#layerSelect { position: absolute; top: 10px; left: 50px; z-index: 10000;}
+#scalebar {position: absolute; right: 20px; bottom: 75px; z-index: 10001; font-size: small;}
+#search-button-ngrgaz {    float: left;    margin: -35px 0 0 185px;    vertical-align: top;    width: 20px;    padding: 2px 3px 2px 7px;    border: 1px;    color: #f3f3f3;
+    font-size: 0.8em;    border: 1px solid #0000FF;    box-shadow: 0 1px 3px #ccc;    background-color: #FFF;    font-weight: 700;    opacity: 0.95;    z-index: 100;    font-family: inherit;
+    cursor: pointer;
+}
+
+/* CSS autocomplete */
+.ac-renderer{position:absolute;border:1px solid #898989;z-index: 30000;margin-top:-1px;max-width:500px; max-height: 400px; overflow: auto; font-size:.9em;}
+
+.ac-row{white-space:nowrap;position:relative;cursor:pointer;padding:5px;background-color:#fff;overflow:hidden !important; text-overflow:ellipsis}
+.ac-row .suffix{font-size:.8em;color:#7a7a7a;padding:.1em 0 0 5px}
+.ac-row .type{font-size:.8em;color:#aaa;display:block;width:100%}
+.ac-highlighted{font-weight:bold}
+.ac-active{color:#393939;background-color:#D6D6D6;}
+.ac-type{background-color:#990033;color:#FFFFFF;display:block;margin:2px;padding:2px;font-style:italic;float:right}
+
